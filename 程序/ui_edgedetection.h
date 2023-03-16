@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -34,6 +35,11 @@ public:
     QSlider *LowSlider;
     QLabel *label_3;
     QLineEdit *LowEdit;
+    QCheckBox *HoughCircleBox;
+    QLineEdit *HoughEdit;
+    QLabel *label_4;
+    QCheckBox *HoughLineBox;
+    QSlider *HoughSlider;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -70,6 +76,22 @@ public:
         LowEdit = new QLineEdit(centralwidget);
         LowEdit->setObjectName(QString::fromUtf8("LowEdit"));
         LowEdit->setGeometry(QRect(670, 170, 101, 21));
+        HoughCircleBox = new QCheckBox(centralwidget);
+        HoughCircleBox->setObjectName(QString::fromUtf8("HoughCircleBox"));
+        HoughCircleBox->setGeometry(QRect(640, 260, 171, 31));
+        HoughEdit = new QLineEdit(centralwidget);
+        HoughEdit->setObjectName(QString::fromUtf8("HoughEdit"));
+        HoughEdit->setGeometry(QRect(630, 330, 141, 31));
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(580, 330, 71, 31));
+        HoughLineBox = new QCheckBox(centralwidget);
+        HoughLineBox->setObjectName(QString::fromUtf8("HoughLineBox"));
+        HoughLineBox->setGeometry(QRect(640, 220, 151, 31));
+        HoughSlider = new QSlider(centralwidget);
+        HoughSlider->setObjectName(QString::fromUtf8("HoughSlider"));
+        HoughSlider->setGeometry(QRect(560, 300, 221, 21));
+        HoughSlider->setOrientation(Qt::Horizontal);
         EdgeDetection->setCentralWidget(centralwidget);
         HighEdit->raise();
         img->raise();
@@ -79,6 +101,11 @@ public:
         LowSlider->raise();
         label_3->raise();
         LowEdit->raise();
+        HoughCircleBox->raise();
+        HoughEdit->raise();
+        label_4->raise();
+        HoughLineBox->raise();
+        HoughSlider->raise();
         menubar = new QMenuBar(EdgeDetection);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 21));
@@ -99,6 +126,9 @@ public:
         SaveButton->setText(QApplication::translate("EdgeDetection", "\344\277\235\345\255\230", nullptr));
         label_2->setText(QApplication::translate("EdgeDetection", "\351\253\230\351\230\210\345\200\274\357\274\232", nullptr));
         label_3->setText(QApplication::translate("EdgeDetection", "\344\275\216\351\230\210\345\200\274:", nullptr));
+        HoughCircleBox->setText(QApplication::translate("EdgeDetection", "\351\234\215\345\244\253\345\234\206\345\217\230\345\214\226", nullptr));
+        label_4->setText(QApplication::translate("EdgeDetection", "\351\230\210\345\200\274\357\274\232", nullptr));
+        HoughLineBox->setText(QApplication::translate("EdgeDetection", "\351\234\215\345\244\253\347\272\277\345\217\230\345\214\226", nullptr));
     } // retranslateUi
 
 };

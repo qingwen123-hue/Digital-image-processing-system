@@ -112,6 +112,68 @@
      </rect>
     </property>
    </widget>
+   <widget class="QCheckBox" name="HoughCircleBox">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>260</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>霍夫圆变化</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="HoughEdit">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>330</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>330</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>阈值：</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="HoughLineBox">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>220</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>霍夫线变化</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="HoughSlider">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>300</y>
+      <width>221</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
    <zorder>HighEdit</zorder>
    <zorder>img</zorder>
    <zorder>SaveButton</zorder>
@@ -120,6 +182,11 @@
    <zorder>LowSlider</zorder>
    <zorder>label_3</zorder>
    <zorder>LowEdit</zorder>
+   <zorder>HoughCircleBox</zorder>
+   <zorder>HoughEdit</zorder>
+   <zorder>label_4</zorder>
+   <zorder>HoughLineBox</zorder>
+   <zorder>HoughSlider</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

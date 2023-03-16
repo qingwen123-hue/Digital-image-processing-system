@@ -8,7 +8,7 @@ Grayscale::Grayscale(QWidget *parent) :
     ui->setupUi(this);
     alpha = 100;
     flag = 1;
-    connect(ui->checkBox,SIGNAL(stateChanged(int)),this,SLOT(change(int)));
+    //connect(ui->checkBox,SIGNAL(stateChanged(int)),this,SLOT(change(int)));
 
     vali = new QIntValidator(0,255,this);
     ui->lineEdit->setValidator(vali);
@@ -23,6 +23,9 @@ Grayscale::Grayscale(QWidget *parent) :
 
     connect(ui->lineEdit,SIGNAL(editingFinished()),this,SLOT(EditHander()));
     connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(SliderHander(int)));
+
+
+
 }
 
 Grayscale::~Grayscale()
@@ -57,33 +60,16 @@ void Grayscale::ReceiveCode(int code)
         ui->horizontalSlider->setValue(alpha);
         ui->checkBox->setCheckState(Qt::Unchecked);
         ui->OTSUButton->setEnabled(false);
+
+
+
     }
 }
 
 void Grayscale::change(int state)
 {
     //qDebug()<<state;
-    if(state == 0)
-    {
-        QPixmap pixmap = MatToPixmap(GraImage);
-        ui->img->setPixmap(pixmap);
-        ui->horizontalSlider->setEnabled(false);
-        ui->lineEdit->setEnabled(false);
-        ui->OTSUButton->setEnabled(false);
-        OutImage = GraImage.clone();
-        flag = 1;
-    }
-    else
-    {
-        ui->horizontalSlider->setEnabled(true);
-        ui->lineEdit->setEnabled(true);
-        ui->OTSUButton->setEnabled(true);
-        alpha = ui->lineEdit->text().toInt();
-        threshold(GraImage, OutImage, alpha, 255, THRESH_BINARY);
-        QPixmap pixmap = MatToPixmap(OutImage);
-        ui->img->setPixmap(pixmap);
-        flag = 0;
-    }
+
 }
 
 void Grayscale::EditHander()
@@ -212,14 +198,14 @@ void Grayscale::CameraHandle(int code)
 {
     if(code == GRAYSCALE)
     {
-        if(flag == 1)
+        if(flag == 0)
         {
             cvtColor(MajorImage, GraImage, COLOR_BGR2GRAY);
             //threshold(GraImage, OutImage, alpha, 255, THRESH_BINARY);
             QPixmap pixmap = MatToPixmap(GraImage);
             ui->img->setPixmap(pixmap);
         }
-        else
+        else if(flag == 1)
         {
             cvtColor(MajorImage, GraImage, COLOR_BGR2GRAY);
             threshold(GraImage, OutImage, alpha, 255, THRESH_BINARY);
@@ -228,4 +214,38 @@ void Grayscale::CameraHandle(int code)
         }
     }
 }
+
+
+
+
+
+void Grayscale::on_checkBox_stateChanged(int arg1)
+{
+    //qDebug()<<"1:"<<arg1;
+    if(arg1 == 0&& flag == 1)
+    {
+        QPixmap pixmap = MatToPixmap(GraImage);
+        ui->img->setPixmap(pixmap);
+        ui->horizontalSlider->setEnabled(false);
+        ui->lineEdit->setEnabled(false);
+        ui->OTSUButton->setEnabled(false);
+        OutImage = GraImage.clone();
+        flag = 0;
+
+    }
+    else if(arg1 == 2)
+    {
+        ui->horizontalSlider->setEnabled(true);
+        ui->lineEdit->setEnabled(true);
+        ui->OTSUButton->setEnabled(true);
+        alpha = ui->lineEdit->text().toInt();
+        threshold(GraImage, OutImage, alpha, 255, THRESH_BINARY);
+        QPixmap pixmap = MatToPixmap(OutImage);
+        ui->img->setPixmap(pixmap);
+        flag = 1;
+    }
+}
+
+
+
 

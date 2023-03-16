@@ -28,6 +28,10 @@ private slots:
     void CameraHandle(int code);
     void on_OTSUButton_clicked();
 
+
+    void on_checkBox_stateChanged(int arg1);
+
+
 private:
     Ui::Grayscale *ui;
 };

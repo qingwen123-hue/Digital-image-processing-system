@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EdgeDetection_t {
-    QByteArrayData data[9];
-    char stringdata0[97];
+    QByteArrayData data[12];
+    char stringdata0[162];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,12 +39,17 @@ QT_MOC_LITERAL(4, 32, 10), // "EditHander"
 QT_MOC_LITERAL(5, 43, 12), // "SliderHander"
 QT_MOC_LITERAL(6, 56, 5), // "value"
 QT_MOC_LITERAL(7, 62, 12), // "CameraHandle"
-QT_MOC_LITERAL(8, 75, 21) // "on_SaveButton_clicked"
+QT_MOC_LITERAL(8, 75, 21), // "on_SaveButton_clicked"
+QT_MOC_LITERAL(9, 97, 28), // "on_HoughLineBox_stateChanged"
+QT_MOC_LITERAL(10, 126, 4), // "arg1"
+QT_MOC_LITERAL(11, 131, 30) // "on_HoughCircleBox_stateChanged"
 
     },
     "EdgeDetection\0ReceiveCode\0\0code\0"
     "EditHander\0SliderHander\0value\0"
-    "CameraHandle\0on_SaveButton_clicked"
+    "CameraHandle\0on_SaveButton_clicked\0"
+    "on_HoughLineBox_stateChanged\0arg1\0"
+    "on_HoughCircleBox_stateChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -54,7 +59,7 @@ static const uint qt_meta_data_EdgeDetection[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -62,11 +67,13 @@ static const uint qt_meta_data_EdgeDetection[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x08 /* Private */,
-       4,    0,   42,    2, 0x08 /* Private */,
-       5,    1,   43,    2, 0x08 /* Private */,
-       7,    1,   46,    2, 0x08 /* Private */,
-       8,    0,   49,    2, 0x08 /* Private */,
+       1,    1,   49,    2, 0x08 /* Private */,
+       4,    0,   52,    2, 0x08 /* Private */,
+       5,    1,   53,    2, 0x08 /* Private */,
+       7,    1,   56,    2, 0x08 /* Private */,
+       8,    0,   59,    2, 0x08 /* Private */,
+       9,    1,   60,    2, 0x08 /* Private */,
+      11,    1,   63,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -74,6 +81,8 @@ static const uint qt_meta_data_EdgeDetection[] = {
     QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   10,
+    QMetaType::Void, QMetaType::Int,   10,
 
        0        // eod
 };
@@ -89,6 +98,8 @@ void EdgeDetection::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 2: _t->SliderHander((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 3: _t->CameraHandle((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: _t->on_SaveButton_clicked(); break;
+        case 5: _t->on_HoughLineBox_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 6: _t->on_HoughCircleBox_stateChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -123,13 +134,13 @@ int EdgeDetection::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 7;
     }
     return _id;
 }
